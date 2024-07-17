@@ -133,6 +133,37 @@ def addstall():
         print(">>>>", exp)
         
         
+#------------ ADD NEW EMPLOYEE --------------------------
+def addemployee():
+    try:
+        newemp = {}
+        newemp[0] = input("Name: ")
+        newemp[1] = input("Gender: ")
+        
+        if(newemp[1] in ['M', 'F']):
+            newemp[2] = int(input("ID: "))
+            newemp[3] = int(input("StallID: "))
+            newemp[4] = input("Role: ")
+            newemp[5] = int(input("Salary: "))
+            newemp[6] = int(input("Workingdays: "))
+            newemp[7] = int(input("Manager ID: "))
+            
+            query = "INSERT INTO Employee VALUES(%s, %s, %s, %s, %s, %s, %s, %s)"
+            data = (newemp[0], newemp[1], newemp[2], newemp[3], newemp[4], newemp[5], newemp[6], newemp[7])
+            
+            base.cursor().execute(query, data)
+            base.commit()
+        
+        else:
+            print("Gender is not valid")
+        
+    except Exception as exp:
+        base.rollback()
+        print("Failed")
+        print(">>>>",exp)
+            
+        
+        
         
         
         
@@ -147,6 +178,9 @@ def function(given):
         adddependent()
     if(given == 4):
         addstall()
+    if(given == 5):
+        addemployee()
+        
 
 
 
