@@ -161,7 +161,26 @@ def addemployee():
         base.rollback()
         print("Failed")
         print(">>>>",exp)
-            
+
+
+
+
+#-------------- HIKE EMPLOYEE ------------------------------------
+def hikeemployee():
+    try:
+        id = int(input("Employee ID:  "))
+        final = int(input("Final Salary: "))
+        
+        query = "UPDATE Employee SET Salary = %d WHERE ID = %d"  
+        data = (final, id)
+        
+        base.cursor().execute(query,data)
+        base.commit()
+        
+    except Exception as exp:
+        base.rollback()
+        print("Failed")
+        print(">>>>", exp)        
         
         
         
@@ -180,6 +199,9 @@ def function(given):
         addstall()
     if(given == 5):
         addemployee()
+    if(given == 6):
+        hikeemployee()
+    
         
 
 
