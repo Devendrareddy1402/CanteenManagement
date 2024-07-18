@@ -123,7 +123,10 @@ SELECT * FROM Customers;
 SELECT * FROM CustomerNumber;
 SELECT * FROM Bill;
 SELECT * FROM Dependents;
-SELECT * FROM Stall 
+SELECT * FROM Stall ;
+SELECT * FROM Employee;
+
+SELECT * FROM Customers WHERE  ID = 108;
 
 
 
